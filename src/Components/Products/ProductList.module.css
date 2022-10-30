@@ -1,0 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.productList{
+    display: flex;
+    flex-direction: row;
+}

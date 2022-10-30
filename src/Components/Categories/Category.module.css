@@ -9,6 +9,7 @@
     padding: 15px;
     border-radius: 10px;
     margin: 20px 5px;
+    cursor: pointer;
 }
 
 .categoryCard_img{

@@ -2,8 +2,8 @@ import React from "react";
 import classes from "./Home.module.css"
 import Header from "../Header/Header";
 import CategoryList from "../Categories/CategoryList";
-import ProductCard from "../Products/ProductCard";
-import PopulerProductList from "../Products/PopulerProductList";
+import ProductList from "../Products/ProductList";
+import Footer from "../Footer/Footer";
 
 const Home = () =>{
 
@@ -82,10 +82,67 @@ const Home = () =>{
             rate:+4.8,
             sold:+80
         },
+        {
+            id:"c5",
+            source:"PopulerProduct/PupukNonSubsidi.png",
+            value:"Pupuk Non-Subsidi",
+            price:+200000,
+            unit:"Sak",
+            rate:+4.5,
+            sold:+40
+        },
+    ]
+
+    const terbaruProductData =[
+        {
+            id:"d1",
+            source:"TerbaruProduct/Lemon.png",
+            value:"Lemon",
+            price:+20000,
+            unit:"Kg",
+            rate:+4.3,
+            sold:+100
+        },
+        {
+            id:"d2",
+            source:"TerbaruProduct/BibitPinang.png",
+            value:"Bibit Pinang",
+            price:+3500,
+            unit:"Item",
+            rate:+3.5,
+            sold:+1000
+        },
+        {
+            id:"d3",
+            source:"TerbaruProduct/Mengkudu.png",
+            value:"Mengkudu",
+            price:+6400,
+            unit:"Kg",
+            rate:+4.1,
+            sold:+71
+        },
+        {
+            id:"d4",
+            source:"TerbaruProduct/Kunyit.png",
+            value:"Kunyit",
+            price:+35000,
+            unit:"Kg",
+            rate:+3.9,
+            sold:+23
+        },
+        {
+            id:"d5",
+            source:"TerbaruProduct/Lemon.png",
+            value:"Lemon",
+            price:+20000,
+            unit:"Kg",
+            rate:+4.3,
+            sold:+100
+        },
     ]
 
     return(
-        <div>
+        <div className={classes.home}>
             <div className={classes.header}>
                 <Header items={searchCategoryData}/>
             </div>
@@ -106,21 +163,25 @@ const Home = () =>{
                 </div>
 
                 <div className={classes.populer}>
-                    <div>
+                    <div className={classes.populer_title}>
                         Populer
                     </div>
-                    <div>
-                        <ProductCard
-                            source="PopulerProduct/PupukNonSubsidi.png"
-                            value="Pupuk Non-Subsidi"
-                            price="90000"
-                            unit="Ton"
-                            rate="4.5"
-                            sold="40"
-                        />
-
-                        <PopulerProductList items={populerProductData}/>
+                    <div className={classes.populer_list}>
+                        <ProductList items={populerProductData}/>
                     </div>
+                </div>
+
+                <div className={classes.terbaru}>
+                    <div className={classes.terbaru_title}>
+                        Terbaru
+                    </div>
+                    <div className={classes.terbaru_list}>
+                        <ProductList items={terbaruProductData}/>
+                    </div>
+                </div>
+
+                <div className={classes.footer}>
+                    <Footer/>
                 </div>
             </div>
         </div>

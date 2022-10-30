@@ -3,5 +3,8 @@
   --second: #42855B;
   --third: #90B77D;
   --fourth: #D2D79F;
-  --fourthT: rgb(210, 215, 159, 0.5);
+  --firstT: rgba(72, 56, 56, 0.5);
+  --secondT: rgba(66, 133, 90, 0.5);
+  --thirdT: rgba(144, 183, 125, 0.5);
+  --fourthT: rgba(210, 215, 159, 0.5);
 }

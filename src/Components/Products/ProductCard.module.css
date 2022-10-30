@@ -8,9 +8,10 @@
     flex-direction: column;
     width: max-content;
     padding:0 0 10px;
-    box-shadow: 0 0 5px 3px var(--fourthT);
+    box-shadow: 0 0 5px 3px var(--secondT);
     border-radius: 10px;
     margin: 10px;
+    cursor: pointer;
 }
 
 .productCard_img{
