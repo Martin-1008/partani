@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.categoryCard{
+    background-color: var(--fourth);
+    width: fit-content;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 5px;
+}
+
+.categoryCard_img{
+    display: flex;
+    justify-content: center;
+}
+
+.categoryCard_img img{
+    width: 80px;
+    height: 80px;
+}
+
+.categoryCard_text{
+    margin: 15px 0 0 0;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}

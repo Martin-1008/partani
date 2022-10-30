@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.searchCategoryList{
+   background-color: var(--fourth); 
+   padding: 5px;
+   position: absolute;
+   top: 90px;
+   left: 30%;
+   border-radius: 10px;
+   display: none;
+   flex-direction: row;
+   opacity: 0;
+}
+
+.searchCategoryList.active{
+    display: flex;
+    opacity: 1;
+}

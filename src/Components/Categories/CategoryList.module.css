@@ -1,0 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.categoryList{
+    display: flex;
+    flex-direction: row;
+}
