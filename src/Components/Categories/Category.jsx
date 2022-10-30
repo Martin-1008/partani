@@ -1,6 +1,5 @@
 import React from "react";
 import classes from "./Category.module.css"
-import PeptisidaIcon from "../../Assets/CategoryIcons/PeptisidaIcon.svg"
 
 const Category = (props)=>{
 
