@@ -6,8 +6,8 @@ import {
   Radio,
   Button,
   FormHelperText,
+  CircularProgress,
 } from "@mui/material";
-import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { Box } from "@mui/material";
 import classes from "./Register.module.css";
@@ -16,6 +16,13 @@ import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
 import { useFormik } from "formik";
+import { useState } from "react";
+import { userRegister } from "../../Controller/Firebase";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../Reducer/UserReducer/UserReducer";
+import { useEffect } from "react";
+import { didUserLogin } from "../../Utils/RoleUtils";
 
 const provinceList = [
   {
@@ -168,7 +175,44 @@ const provinceList = [
   },
 ];
 
+const phoneRegExp =
+  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+
 const Register = () => {
+  const [registerSuccess, setRegisterSuccess] = useState(null);
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    didUserLogin(user) && navigate("/home");
+  }, []);
+
+  const handleRegister = async (values, formik) => {
+    try {
+      const userSignUp = await userRegister(
+        values.nama,
+        values.email,
+        values.password,
+        values.nomorTelepon,
+        values.tanggalLahir,
+        values.jenisKelamin,
+        values.provinsi,
+        values.kota,
+        values.kecamatan,
+        values.alamatLengkap,
+        values.kodePos
+      );
+      setRegisterSuccess(userSignUp);
+    } catch (error) {
+      formik.errors.account = "Something went wrong";
+    }
+  };
+
+  const handleToHomePage = () => {
+    dispatch(login(registerSuccess));
+    navigate("/home");
+  };
+
   const validationSchema = yup.object({
     nama: yup.string("Enter your name").required("Name is required"),
     email: yup
@@ -181,7 +225,7 @@ const Register = () => {
       .required("Password is required"),
     nomorTelepon: yup
       .string("Enter your phone number")
-      .min(10, "Phone Number should be of minimum 10 characters length")
+      .matches(phoneRegExp, "Phone number is not valid")
       .required("Phone number is required"),
     tanggalLahir: yup
       .date("Enter your birth date")
@@ -235,9 +279,14 @@ const Register = () => {
         kodePos: "",
       },
       validationSchema: validationSchema,
-      onSubmit: (values) => {
-        console.log("testing");
-        alert(JSON.stringify(values, null, 2));
+      onSubmit: async (values) => {
+        try {
+          alert(JSON.stringify(values, null, 2));
+          await handleRegister(values, formik);
+          console.log("success");
+        } catch (error) {
+          console.log(error);
+        }
       },
     });
 
@@ -245,6 +294,9 @@ const Register = () => {
       <div className={classes.muiContainer}>
         {console.log(formik)}
         <form onSubmit={formik.handleSubmit} className={classes.muiForm}>
+          {formik.errors.account && (
+            <p className={classes.signUpError}>{formik.errors.account}</p>
+          )}
           <Box className={classes.muiContent}>
             <Box
               sx={{
@@ -316,7 +368,7 @@ const Register = () => {
                     color: "black",
                   }}
                   fullWidth
-                  type="number"
+                  type="text"
                   name="nomorTelepon"
                   label="Nomor Telepon"
                   variant="outlined"
@@ -566,8 +618,13 @@ const Register = () => {
             }}
             type="submit"
             variant="contained"
+            disabled={formik.isSubmitting}
           >
-            SIGN UP
+            {formik.isSubmitting ? (
+              <CircularProgress color="inherit" />
+            ) : (
+              "SIGN UP"
+            )}
           </Button>
         </form>
       </div>
@@ -584,6 +641,11 @@ const Register = () => {
           Already have an account? <Link to={"/login"}>Sign in here!</Link>
         </div>
       </div>
+      {registerSuccess !== null &&
+        (() => {
+          dispatch(login(registerSuccess));
+          navigate("/home");
+        })}
     </div>
   );
 };

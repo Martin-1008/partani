@@ -18,6 +18,12 @@
   padding: 20px;
 }
 
+.signUpError {
+  color: #ff694e;
+  display: flex;
+  justify-content: center;
+}
+
 .registerTitle {
   display: flex;
   justify-content: center;

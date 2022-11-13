@@ -4,21 +4,12 @@ import Header from "../../Components/Header/Header";
 import CategoryList from "../../Components/Categories/CategoryList";
 import ProductList from "../../Components/Products/ProductList";
 import Footer from "../../Components/Footer/Footer";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { didUserLogin } from "../../Utils/RoleUtils";
 
 const Home = () => {
-  const searchCategoryData = [
-    {
-      id: "a1",
-      value: "Petani",
-      source: "Icons/PetaniIcon.svg",
-    },
-    {
-      id: "a2",
-      value: "Hobi",
-      source: "Icons/HobiKebunIcon.svg",
-    },
-  ];
-
   const categoryItemData = [
     {
       id: "b1",
@@ -138,10 +129,16 @@ const Home = () => {
     },
   ];
 
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
+  useEffect(() => {
+    !didUserLogin(user) && navigate("/login");
+  }, []);
+
   return (
     <div className={classes.home}>
       <div className={classes.header}>
-        <Header items={searchCategoryData} />
+        <Header />
       </div>
 
       <div className={classes.headerFill}></div>

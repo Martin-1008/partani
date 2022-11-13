@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.headerFill {
+  height: 70px;
+}
+.userInfo {
+  display: flex;
+  flex-direction: row;
+}
+
+.coloumTitle {
+  display: flex;
+  flex-direction: column;
+}
+
+.coloumUbah {
+  display: flex;
+  flex-direction: column;
+  color: #04add3;
+}
+
+.biodataDiri {
+  font-size: 20px;
+}

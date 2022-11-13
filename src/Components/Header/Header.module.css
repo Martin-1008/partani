@@ -1,75 +1,80 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.section{
-    background-color: var(--second);
-    width: 100%;
-    position: fixed;
+.section {
+  background-color: var(--second);
+  width: 100%;
+  position: fixed;
 }
 
-.header{
-    max-width: 1300px;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.header {
+  max-width: 1300px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.firstHeaderSection a img{
-    width: 200px;
-    display: flex;
-    align-items: center;
-    padding: 5px 0;
+.firstHeaderSection a img {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
 }
 
-.secondHeaderSection{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
+.secondHeaderSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
 }
 
-.searchCategory{
-    margin: 0 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.searchCategory {
+  margin: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.searchBar{
-    width: 60%;
+.searchBar {
+  width: 60%;
 }
 
-.searchBar input{
-    padding: 10px 15px;
-    font-size: 1.1rem;
-    border-radius: 20px;
-    border: 0;
-    width: 100%;
+.searchBar input {
+  padding: 10px 15px;
+  font-size: 1.1rem;
+  border-radius: 20px;
+  border: 0;
+  width: 100%;
 }
 
-.thirdHeaderSection{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.thirdHeaderSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.thirdHeaderSectionIcon{
-    display: flex;
-    align-items: center;
+.thirdHeaderSectionIcon {
+  display: flex;
+  align-items: center;
 }
 
-.thirdHeaderSection a{
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+.thirdHeaderSection a {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
-.thirdHeaderSectionIcon a img{
-    width: 45px;
-    padding: 15px 15px;
-    padding-top: auto;
+.thirdHeaderSectionIcon a img {
+  width: 45px;
+  padding: 15px 15px;
+  padding-top: auto;
+}
+
+.badge {
+  background-color: #04add3;
+  color: white;
 }
