@@ -12,6 +12,7 @@ const initialState = {
   userKecamatan: "",
   userAlamatLengkap: "",
   userKodePos: "",
+  userUid: "",
 };
 
 export const userReducer = createSlice({
@@ -20,16 +21,17 @@ export const userReducer = createSlice({
   reducers: {
     login: (state, action) => {
       state.isLoggedIn = true;
-      state.userNama = action.payload.nama;
-      state.userEmail = action.payload.email;
-      state.userNomorTelepon = action.payload.nomorTelepon;
-      state.userTanggalLahir = action.payload.tanggalLahir;
-      state.userJenisKelamin = action.payload.jenisKelamin;
-      state.userProvinsi = action.payload.provinsi;
-      state.userKota = action.payload.kota;
-      state.userKecamatan = action.payload.kecamatan;
-      state.userAlamatLengkap = action.payload.alamatLengkap;
-      state.userKodePos = action.payload.kodePos;
+      state.userNama = action.payload.userRef.name;
+      state.userEmail = action.payload.userRef.email;
+      state.userNomorTelepon = action.payload.userRef.phoneNumber;
+      state.userTanggalLahir = action.payload.userRef.birthDate;
+      state.userJenisKelamin = action.payload.userRef.gender;
+      state.userProvinsi = action.payload.userRef.province;
+      state.userKota = action.payload.userRef.city;
+      state.userKecamatan = action.payload.userRef.district;
+      state.userAlamatLengkap = action.payload.userRef.fullAddress;
+      state.userKodePos = action.payload.userRef.postCode;
+      state.userUid = action.payload.uid;
     },
     logoff: (state) => {
       window.location.href = "/login";
@@ -44,6 +46,7 @@ export const userReducer = createSlice({
       state.userKecamatan = "";
       state.userAlamatLengkap = "";
       state.userKodePos = "";
+      state.userUid = "";
     },
   },
 });

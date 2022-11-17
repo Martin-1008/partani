@@ -17,7 +17,7 @@ const Login = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   useEffect(() => {
-    didUserLogin(user) && navigate("/home");
+    didUserLogin(user) && navigate("/");
   }, []);
 
   const handleLogin = async (email, password, formik) => {
@@ -25,7 +25,7 @@ const Login = () => {
       const user = await userSignIn(email, password);
       console.log(user);
       dispatch(login(user));
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       formik.errors.account = "Invalid Email or Password";
     }

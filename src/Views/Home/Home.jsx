@@ -5,9 +5,10 @@ import CategoryList from "../../Components/Categories/CategoryList";
 import ProductList from "../../Components/Products/ProductList";
 import Footer from "../../Components/Footer/Footer";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { didUserLogin } from "../../Utils/RoleUtils";
+import { logoff } from "../../Reducer/UserReducer/UserReducer";
 
 const Home = () => {
   const categoryItemData = [
@@ -130,6 +131,7 @@ const Home = () => {
   ];
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   useEffect(() => {
     !didUserLogin(user) && navigate("/login");

@@ -1,6 +1,12 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore, setDoc, doc, getDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  setDoc,
+  doc,
+  getDoc,
+  updateDoc,
+} from "firebase/firestore";
 import { getAuth, deleteUser } from "firebase/auth";
 import {
   signInWithEmailAndPassword,
@@ -27,6 +33,7 @@ export { auth, fireStore };
 export const userSignIn = async (email, password) => {
   console.log("testing");
   const userSigned = await signInWithEmailAndPassword(auth, email, password);
+  console.log(userSigned.user.uid);
   return getData(userSigned.user.uid);
 };
 
@@ -104,8 +111,28 @@ export const AddDatabase = async (
 export const getData = async (uid) => {
   try {
     const docRef = await getDoc(doc(fireStore, "users", uid));
-    return docRef.data();
+    const userRef = docRef.data();
+    return { userRef, uid: uid };
   } catch (error) {
     return "NotFind";
   }
+};
+
+export const updateData = async (
+  nama,
+  nomorTelepon,
+  tanggalLahir,
+  jenisKelamin,
+  uid
+) => {
+  const tes = doc(fireStore, "users", uid);
+
+  const tesData = {
+    name: nama,
+    phoneNumber: nomorTelepon,
+    birthDate: tanggalLahir,
+    gender: jenisKelamin,
+  };
+  await updateDoc(tes, tesData);
+  return getData(uid);
 };

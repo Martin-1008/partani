@@ -1,0 +1,27 @@
+.headerFill {
+  height: 70px;
+}
+
+.content {
+  max-width: 1300px;
+  margin: auto;
+}
+
+.container {
+  margin: 40px 0;
+}
+
+.notFindContainer {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+
+.notFind {
+  font-size: 1.2rem;
+  color: rgb(107, 107, 107);
+  padding-right: 10px;
+}

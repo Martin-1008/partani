@@ -187,6 +187,10 @@ const Register = () => {
     didUserLogin(user) && navigate("/home");
   }, []);
 
+  if (user.isLoggedIn === true) {
+    navigate("/");
+  }
+
   const handleRegister = async (values, formik) => {
     try {
       const userSignUp = await userRegister(
@@ -203,14 +207,11 @@ const Register = () => {
         values.kodePos
       );
       setRegisterSuccess(userSignUp);
+      dispatch(login(userSignUp));
+      navigate("/");
     } catch (error) {
       formik.errors.account = "Something went wrong";
     }
-  };
-
-  const handleToHomePage = () => {
-    dispatch(login(registerSuccess));
-    navigate("/home");
   };
 
   const validationSchema = yup.object({
@@ -641,11 +642,6 @@ const Register = () => {
           Already have an account? <Link to={"/login"}>Sign in here!</Link>
         </div>
       </div>
-      {registerSuccess !== null &&
-        (() => {
-          dispatch(login(registerSuccess));
-          navigate("/home");
-        })}
     </div>
   );
 };

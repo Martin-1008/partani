@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import classes from "./Header.module.css";
 import PartaniIcon from "../../Assets/Icons/PartaniIcon.svg";
 import ProfileIcon from "../../Assets/Icons/ProfileIcon.svg";
@@ -10,6 +10,9 @@ import Avatar from "@mui/material/Avatar";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Box, InputBase } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 
 const SearchCategoryData = [
   {
@@ -24,9 +27,11 @@ const SearchCategoryData = [
   },
 ];
 
-const Header = (props) => {
+const Header = () => {
   const navigate = useNavigate();
-
+  const user = useSelector((state) => state.user);
+  const [filter, setFilter] = useState("");
+  const searchRef = useRef();
   const navigateToUser = () => {
     navigate("/user");
   };
@@ -55,11 +60,25 @@ const Header = (props) => {
     }
   };
 
+  const handleSearch = async () => {
+    console.log(searchRef.current.value);
+    if (searchRef.current.value.trim().length > 0) {
+      navigate(`/product/search/${searchRef.current.value.toLowerCase()}`);
+      searchRef.current.value = "";
+    }
+  };
+
+  const handleEnterSearch = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
     <div className={classes.section}>
       <div className={classes.header}>
         <div className={classes.firstHeaderSection}>
-          <Link to={"/home"}>
+          <Link to={"/"}>
             <img src={PartaniIcon} />
           </Link>
         </div>
@@ -85,9 +104,37 @@ const Header = (props) => {
               )}
             </div>
           </div>
-          <div className={classes.searchBar}>
-            <input type="text" placeholder="Search"></input>
-          </div>
+          <Box
+            sx={{
+              width: "70%",
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              padding: "7px 10px 7px 20px",
+              gap: "6px",
+              background: "#E2E2E2",
+              borderRadius: "20px",
+              "& svg": {
+                cursor: "pointer",
+              },
+            }}
+          >
+            <input
+              placeholder="Cari Produk"
+              className={classes.searchInput}
+              ref={searchRef}
+              onKeyDown={handleEnterSearch}
+            />
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+              }}
+              onClick={handleSearch}
+            >
+              <SearchIcon fontSize="large" />
+            </Box>
+          </Box>
         </div>
         <div className={classes.thirdHeaderSection}>
           <Stack
@@ -110,7 +157,7 @@ const Header = (props) => {
             </IconButton>
             <Chip
               avatar={<Avatar></Avatar>}
-              label="Quest"
+              label={user.userNama}
               onClick={navigateToUser}
             />
           </Stack>
