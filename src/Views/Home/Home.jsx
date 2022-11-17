@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { didUserLogin } from "../../Utils/RoleUtils";
-import { logoff } from "../../Reducer/UserReducer/UserReducer";
+import { useRef } from "react";
 
 const Home = () => {
   const categoryItemData = [
@@ -131,11 +131,18 @@ const Home = () => {
   ];
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
+  const categoryRef = useRef();
   useEffect(() => {
     !didUserLogin(user) && navigate("/login");
   }, []);
+
+  const filterCategory = (filter) => {
+    console.log(filter);
+    categoryRef.current = filter;
+    console.log(categoryRef.current);
+    navigate(`/product/category/${categoryRef.current.toLowerCase()}`);
+  };
 
   return (
     <div className={classes.home}>
@@ -150,7 +157,10 @@ const Home = () => {
             <span>Kategori</span>
           </div>
           <div className={classes.category_list}>
-            <CategoryList items={categoryItemData} />
+            <CategoryList
+              items={categoryItemData}
+              getCategory={filterCategory}
+            />
           </div>
         </div>
 

@@ -7,6 +7,7 @@ export const product = [
     unit: "Kg",
     rate: +4.3,
     sold: +100,
+    category: "Buah",
   },
   {
     id: "a2",
@@ -16,6 +17,7 @@ export const product = [
     unit: "Item",
     rate: +3.5,
     sold: +1000,
+    category: "Bibit",
   },
   {
     id: "a3",
@@ -25,6 +27,7 @@ export const product = [
     unit: "Kg",
     rate: +4.1,
     sold: +71,
+    category: "Buah",
   },
   {
     id: "a4",
@@ -34,6 +37,7 @@ export const product = [
     unit: "Kg",
     rate: +3.9,
     sold: +23,
+    category: "Buah",
   },
   {
     id: "a5",
@@ -43,6 +47,7 @@ export const product = [
     unit: "Sak",
     rate: +4.5,
     sold: +40,
+    category: "Pupuk",
   },
   {
     id: "a6",
@@ -52,6 +57,7 @@ export const product = [
     unit: "Kg",
     rate: +4.0,
     sold: +20,
+    category: "Buah",
   },
   {
     id: "a7",
@@ -61,6 +67,7 @@ export const product = [
     unit: "Kg",
     rate: +4.2,
     sold: +40,
+    category: "Buah",
   },
   {
     id: "a8",
@@ -70,5 +77,6 @@ export const product = [
     unit: "Kg",
     rate: +4.8,
     sold: +80,
+    category: "Buah",
   },
 ];

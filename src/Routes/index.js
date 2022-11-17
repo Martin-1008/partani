@@ -5,6 +5,7 @@ import ProductDetail from "../Views/ProductDetail/ProductDetail";
 import Register from "../Views/Register/Register";
 import User from "../Views/User/User";
 import Products from "../Views/Product/Products";
+import ProductCategory from "../Views/ProductCategory/ProductCategory";
 
 const MainRoute = () => {
   return useRoutes([
@@ -31,6 +32,10 @@ const MainRoute = () => {
     {
       path: "/product/search/:filter",
       element: <Products />,
+    },
+    {
+      path: "/product/category/:filter",
+      element: <ProductCategory />,
     },
   ]);
 };

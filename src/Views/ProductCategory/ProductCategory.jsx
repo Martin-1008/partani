@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import classes from "./Products.module.css";
-import ProductList from "../../Components/Products/ProductList";
-import { product } from "../../Components/Products/Product";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
+import ProductList from "../../Components/Products/ProductList";
+import { product } from "../../Components/Products/Product";
+import classes from "./ProductCategory.module.css";
 
-const Products = () => {
+const ProductCategory = () => {
   const params = useParams();
   const [productList, setProductList] = useState([]);
   const [filter, setFilter] = useState(params.filter);
@@ -20,7 +19,7 @@ const Products = () => {
 
   console.log(filter);
   let productFilter = product.filter((data) => {
-    return data.value.toLocaleLowerCase().includes(filter);
+    return data.category.toLocaleLowerCase().includes(filter);
   });
 
   return (
@@ -58,4 +57,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default ProductCategory;
