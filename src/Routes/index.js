@@ -26,7 +26,7 @@ const MainRoute = () => {
       element: <User />,
     },
     {
-      path: "/productDetail",
+      path: "/productDetail/:id",
       element: <ProductDetail />,
     },
     {

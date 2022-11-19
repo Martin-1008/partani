@@ -1,7 +1,7 @@
 export const product = [
   {
     id: "a1",
-    source: "TerbaruProduct/Lemon.png",
+    source: "/TerbaruProduct/Lemon.png",
     value: "Lemon",
     price: +20000,
     unit: "Kg",
@@ -11,7 +11,7 @@ export const product = [
   },
   {
     id: "a2",
-    source: "TerbaruProduct/BibitPinang.png",
+    source: "/TerbaruProduct/BibitPinang.png",
     value: "Bibit Pinang",
     price: +3500,
     unit: "Item",
@@ -21,7 +21,7 @@ export const product = [
   },
   {
     id: "a3",
-    source: "TerbaruProduct/Mengkudu.png",
+    source: "/TerbaruProduct/Mengkudu.png",
     value: "Mengkudu",
     price: +6400,
     unit: "Kg",
@@ -31,7 +31,7 @@ export const product = [
   },
   {
     id: "a4",
-    source: "TerbaruProduct/Kunyit.png",
+    source: "/TerbaruProduct/Kunyit.png",
     value: "Kunyit",
     price: +35000,
     unit: "Kg",
@@ -41,7 +41,7 @@ export const product = [
   },
   {
     id: "a5",
-    source: "PopulerProduct/PupukNonSubsidi.png",
+    source: "/PopulerProduct/PupukNonSubsidi.png",
     value: "Pupuk Non-Subsidi",
     price: +200000,
     unit: "Sak",
@@ -51,7 +51,7 @@ export const product = [
   },
   {
     id: "a6",
-    source: "PopulerProduct/CengkehKering.png",
+    source: "/PopulerProduct/CengkehKering.png",
     value: "Cengkeh Kering",
     price: +140000,
     unit: "Kg",
@@ -61,7 +61,7 @@ export const product = [
   },
   {
     id: "a7",
-    source: "PopulerProduct/JagungPipil.png",
+    source: "/PopulerProduct/JagungPipil.png",
     value: "Jagung Pipil",
     price: +6000,
     unit: "Kg",
@@ -71,7 +71,7 @@ export const product = [
   },
   {
     id: "a8",
-    source: "PopulerProduct/KedelaiNonGMO.png",
+    source: "/PopulerProduct/KedelaiNonGMO.png",
     value: "Kedelai Non GMO",
     price: +10000,
     unit: "Kg",
@@ -80,3 +80,4 @@ export const product = [
     category: "Buah",
   },
 ];
+

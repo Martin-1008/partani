@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  text-decoration: none;
 }
 
 .productCard {
@@ -8,7 +9,7 @@
   flex-direction: column;
   width: max-content;
   padding: 0 0 10px;
-  box-shadow: rgba(66, 133, 90, 0.16) 0px 1px 4px 0px;
+  box-shadow: rgba(30, 61, 42, 0.16) 0px 1px 4px 0px;
   border-radius: 10px;
   margin: 10px;
   cursor: pointer;

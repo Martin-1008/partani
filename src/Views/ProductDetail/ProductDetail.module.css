@@ -1,3 +1,214 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+
 .headerFill {
   height: 70px;
+}
+
+.section {
+  margin: auto;
+  max-width: 1300px;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 60px;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+}
+
+.productImage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+
+.productImage img {
+  width: 80%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+  width: 50%;
+}
+
+.infoText {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.productName {
+  margin: 0 0 20px;
+}
+
+.infoText .productSold {
+  font-weight: normal;
+  font-size: 1rem;
+  margin: 0 0 20px;
+}
+
+.productPrice {
+  margin: 0 0 20px;
+}
+
+.infoCategory {
+  background-color: #f8f8f8;
+  padding: 10px;
+  height: 50%;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.categoryBox {
+  background-color: #d9d9d9;
+  box-shadow: rgba(30, 61, 42, 0.05) 0px 2px 8px 0px;
+  font-weight: normal;
+  font-size: 1.1rem;
+  width: fit-content;
+  padding: 7px;
+  margin: 10px;
+  border-radius: 7px;
+}
+
+.purchaseCart {
+  width: 20%;
+  align-items: center;
+}
+
+.productPurchase {
+  box-shadow: rgba(30, 61, 42, 0.2) 0px 2px 8px 0px;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.amountSet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.amountTitle {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.amountInput {
+  width: 30%;
+  display: flex;
+  margin: 0 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+.amountInput input {
+  width: 60%;
+  height: 35px;
+  padding-left: 15px;
+  font-size: 1.2rem;
+}
+
+.amountSet {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0;
+}
+
+.productStock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.purchaseButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.reviewSection {
+  margin: 40px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.reviewBackground {
+  background-color: #d9d9d9;
+  width: 60%;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.reviewBackground p {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.reviewContent {
+  display: flex;
+  justify-content: center;
+}
+
+.personReview {
+  background-color: #f8f8f8;
+  box-shadow: rgba(30, 61, 42, 0.2) 0px 2px 8px 0px;
+  width: 90%;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.personInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.personProfile {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.personImage {
+  margin-right: 15px;
+}
+
+.personName {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.personImage img {
+  width: 50px;
+}
+
+.reviewText {
+  margin: 10px 20px;
 }

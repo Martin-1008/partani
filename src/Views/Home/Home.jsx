@@ -36,7 +36,7 @@ const Home = () => {
 
   const populerProductData = [
     {
-      id: "c1",
+      id: "a5",
       source: "PopulerProduct/PupukNonSubsidi.png",
       value: "Pupuk Non-Subsidi",
       price: +200000,
@@ -45,7 +45,7 @@ const Home = () => {
       sold: +40,
     },
     {
-      id: "c2",
+      id: "a6",
       source: "PopulerProduct/CengkehKering.png",
       value: "Cengkeh Kering",
       price: +140000,
@@ -54,7 +54,7 @@ const Home = () => {
       sold: +20,
     },
     {
-      id: "c3",
+      id: "a7",
       source: "PopulerProduct/JagungPipil.png",
       value: "Jagung Pipil",
       price: +6000,
@@ -63,7 +63,7 @@ const Home = () => {
       sold: +40,
     },
     {
-      id: "c4",
+      id: "a8",
       source: "PopulerProduct/KedelaiNonGMO.png",
       value: "Kedelai Non GMO",
       price: +10000,
@@ -71,20 +71,11 @@ const Home = () => {
       rate: +4.8,
       sold: +80,
     },
-    {
-      id: "c5",
-      source: "PopulerProduct/PupukNonSubsidi.png",
-      value: "Pupuk Non-Subsidi",
-      price: +200000,
-      unit: "Sak",
-      rate: +4.5,
-      sold: +40,
-    },
   ];
 
   const terbaruProductData = [
     {
-      id: "d1",
+      id: "a1",
       source: "TerbaruProduct/Lemon.png",
       value: "Lemon",
       price: +20000,
@@ -93,7 +84,7 @@ const Home = () => {
       sold: +100,
     },
     {
-      id: "d2",
+      id: "a2",
       source: "TerbaruProduct/BibitPinang.png",
       value: "Bibit Pinang",
       price: +3500,
@@ -102,7 +93,7 @@ const Home = () => {
       sold: +1000,
     },
     {
-      id: "d3",
+      id: "a3",
       source: "TerbaruProduct/Mengkudu.png",
       value: "Mengkudu",
       price: +6400,
@@ -111,7 +102,7 @@ const Home = () => {
       sold: +71,
     },
     {
-      id: "d4",
+      id: "a4",
       source: "TerbaruProduct/Kunyit.png",
       value: "Kunyit",
       price: +35000,
@@ -119,20 +110,10 @@ const Home = () => {
       rate: +3.9,
       sold: +23,
     },
-    {
-      id: "d5",
-      source: "TerbaruProduct/Lemon.png",
-      value: "Lemon",
-      price: +20000,
-      unit: "Kg",
-      rate: +4.3,
-      sold: +100,
-    },
   ];
-
+  const categoryRef = useRef();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
-  const categoryRef = useRef();
   useEffect(() => {
     !didUserLogin(user) && navigate("/login");
   }, []);

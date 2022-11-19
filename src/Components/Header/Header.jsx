@@ -18,12 +18,12 @@ const SearchCategoryData = [
   {
     id: "a1",
     value: "Petani",
-    source: "Icons/PetaniIcon.svg",
+    source: "/Icons/PetaniIcon.svg",
   },
   {
     id: "a2",
     value: "Hobi",
-    source: "Icons/HobiKebunIcon.svg",
+    source: "/Icons/HobiKebunIcon.svg",
   },
 ];
 
@@ -39,7 +39,7 @@ const Header = () => {
   const [searchCategoryItem, setSearchCategoryItem] = useState({
     id: "a1",
     value: "Petani",
-    source: "Icons/PetaniIcon.svg",
+    source: "/Icons/PetaniIcon.svg",
   });
 
   const [isShow, setIsShow] = useState(false);

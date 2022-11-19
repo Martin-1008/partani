@@ -6,13 +6,19 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
+import { useSelector } from "react-redux";
+import { didUserLogin } from "../../Utils/RoleUtils";
+import { useNavigate } from "react-router-dom";
 
 const Products = () => {
   const params = useParams();
   const [productList, setProductList] = useState([]);
   const [filter, setFilter] = useState(params.filter);
+  const user = useSelector((state) => state.user);
+  const navigate = useNavigate();
 
   useEffect(() => {
+    !didUserLogin(user) && navigate("/login");
     console.log("test");
     console.log(params);
     setFilter(params.filter);

@@ -18,8 +18,7 @@
 
 .category {
   border-radius: 20px;
-  border: 2px solid var(--third);
-  border: 2px solid var(--firstT);
+  border: 2px solid var(--fifth);
   /* box-shadow: 0 0 5px 3px var(--firstT); */
   max-width: 1300px;
   margin: auto;
@@ -38,8 +37,7 @@
 
 .populer {
   border-radius: 20px;
-  border: 2px solid var(--third);
-  border: 2px solid var(--firstT);
+  border: 2px solid var(--fifth);
   /* box-shadow: 0 0 5px 3px var(--firstT); */
   max-width: 1300px;
   margin: auto;
@@ -58,8 +56,7 @@
 
 .terbaru {
   border-radius: 20px;
-  border: 2px solid var(--third);
-  border: 2px solid var(--firstT);
+  border: 2px solid var(--fifth);
   /* box-shadow: 0 0 5px 3px var(--firstT); */
   max-width: 1300px;
   margin: auto;
