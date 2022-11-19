@@ -1,0 +1,70 @@
+.card {
+  box-shadow: rgba(30, 61, 42, 0.2) 0px 2px 8px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 10px;
+}
+
+.leftSection {
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.rightSection {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.transactionImage {
+  width: 25%;
+  height: 100%;
+}
+
+.transactionImage img {
+  width: 100%;
+  height: 100%;
+}
+
+.transactionText {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 25px;
+}
+
+.transactionName {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.transactionDate {
+  display: flex;
+  align-items: flex-end;
+  color: rgb(163, 163, 163);
+}
+
+.transactionPrice {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.transactionTotal {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.transactionAmount {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.2rem;
+  font-weight: bold;
+}

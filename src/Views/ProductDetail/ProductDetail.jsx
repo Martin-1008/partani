@@ -17,6 +17,16 @@ import { didUserLogin } from "../../Utils/RoleUtils";
 import { useNavigate } from "react-router-dom";
 import { product } from "../../Components/Products/Product";
 import ProductList from "../../Components/Products/ProductList";
+import Dialog from "@mui/material/Dialog";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import {
+  addTransaction,
+  updateTransaction,
+  getTransactionData,
+} from "../../Controller/Firebase";
 
 const ProductDetail = () => {
   const [rating, setRating] = useState(0);
@@ -24,8 +34,11 @@ const ProductDetail = () => {
   const [amount, setAmount] = useState(0);
   // const [productData, setProductData] = useState([]);
   const amountRef = useRef();
+  const categoryRef = useRef();
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     !didUserLogin(user) && navigate("/login");
@@ -35,7 +48,7 @@ const ProductDetail = () => {
     return data.id.includes(id);
   });
 
-  console.log(productFilter);
+  console.log(user.userUid);
 
   const addHandle = () => {
     if (amountRef.current.value < 10) {
@@ -58,7 +71,34 @@ const ProductDetail = () => {
       setAmount(amountRef.current.value);
     }
   };
-  console.log(productFilter);
+
+  const navigateToProductCategory = () => {
+    const filter = productFilter[0].category;
+    categoryRef.current = filter;
+    navigate(`/product/category/${categoryRef.current.toLowerCase()}`);
+  };
+
+  const navigateToTransaction = () => {
+    handleClose();
+    handleInputTransaction();
+    navigate("/transaction");
+  };
+
+  const handleClickOpen = () => {
+    setTotalPrice(amount * productFilter[0].price);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleInputTransaction = async () => {
+    await updateTransaction(amount, productFilter[0].id, user.userUid);
+    // await getTransactionData(user.userUid);
+  };
+  // amount, productFilter[0].id, user.userUid
+
   return (
     <div>
       <div>
@@ -105,7 +145,12 @@ const ProductDetail = () => {
               </div>
               <div className={classes.infoCategory}>
                 Kategori
-                <div className={classes.categoryBox}>
+                <div
+                  className={classes.categoryBox}
+                  onClick={() => {
+                    navigateToProductCategory();
+                  }}
+                >
                   {productFilter[0].category}
                 </div>
               </div>
@@ -150,6 +195,7 @@ const ProductDetail = () => {
                     },
                   }}
                   color="inherit"
+                  onClick={handleClickOpen}
                 >
                   Beli
                 </Button>
@@ -202,6 +248,75 @@ const ProductDetail = () => {
       <div>
         <Footer />
       </div>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Konfirmasi Transaksi</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Apakah anda yakin dengan pembelian berikut?
+          </DialogContentText>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "row",
+              border: " 1px solid var(--fifth)",
+              borderRadius: "5px",
+              padding: "10px",
+              margin: "20px 0",
+            }}
+          >
+            <img
+              src={productFilter[0].source}
+              className={classes.dialogImage}
+            />
+            <Box className={classes.productText}>
+              <p>{productFilter[0].value}</p>
+              <p className={classes.productAmountCalculation}>
+                Rp. {productFilter[0].price} x {amount}
+              </p>
+              <p className={classes.totalPrice}>Rp. {totalPrice}</p>
+            </Box>
+          </Box>
+          <DialogContentText>
+            <Box className={classes.alamatTitle}>Dengan Tujuan Pengiriman</Box>
+            <Box>
+              <p className={classes.alamatLengkap}>{user.userAlamatLengkap}</p>
+              <Box className={classes.daerah}>
+                <p>
+                  {user.userKecamatan}, {user.userKota}, {user.userProvinsi}
+                </p>
+                <p>{user.userKodePos}</p>
+              </Box>
+            </Box>
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button
+            sx={{
+              color: "#DF0000",
+              "&:hover": {
+                backgroundColor: "#DF0000",
+                color: "white",
+              },
+            }}
+            onClick={handleClose}
+          >
+            Batal
+          </Button>
+          <Button
+            sx={{
+              color: "var(--second)",
+              "&:hover": {
+                backgroundColor: "var(--second)",
+                color: "white",
+              },
+            }}
+            onClick={navigateToTransaction}
+            autoFocus
+          >
+            Setuju
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };

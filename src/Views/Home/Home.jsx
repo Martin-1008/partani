@@ -32,6 +32,11 @@ const Home = () => {
       source: "CategoryIcons/PeralatanIcon.svg",
       value: "Peralatan",
     },
+    {
+      id: "b5",
+      source: "CategoryIcons/BuahIcon.svg",
+      value: "Buah",
+    },
   ];
 
   const populerProductData = [

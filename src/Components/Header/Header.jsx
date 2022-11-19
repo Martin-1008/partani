@@ -150,8 +150,12 @@ const Header = () => {
                 <NotificationsIcon fontSize="large" />
               </Badge>
             </IconButton>
-            <IconButton>
-              <Badge badgeContent={4} classes={{ badge: classes.badge }}>
+            <IconButton
+              onClick={() => {
+                navigate("/transaction");
+              }}
+            >
+              <Badge classes={{ badge: classes.badge }}>
                 <ShoppingCartIcon fontSize="large" />
               </Badge>
             </IconButton>

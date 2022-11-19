@@ -6,6 +6,7 @@ import Register from "../Views/Register/Register";
 import User from "../Views/User/User";
 import Products from "../Views/Product/Products";
 import ProductCategory from "../Views/ProductCategory/ProductCategory";
+import Transaction from "../Views/Transaction/Transaction";
 
 const MainRoute = () => {
   return useRoutes([
@@ -36,6 +37,10 @@ const MainRoute = () => {
     {
       path: "/product/category/:filter",
       element: <ProductCategory />,
+    },
+    {
+      path: "/transaction",
+      element: <Transaction />,
     },
   ]);
 };

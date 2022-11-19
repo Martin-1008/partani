@@ -1,0 +1,16 @@
+.headerFill {
+  height: 70px;
+}
+
+.section {
+  max-width: 1300px;
+  margin: auto;
+}
+
+.container {
+  margin: 60px 0;
+}
+
+.transactionList {
+  padding: 40px 80px 20px;
+}

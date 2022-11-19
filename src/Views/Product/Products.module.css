@@ -40,3 +40,10 @@
   color: rgb(107, 107, 107);
   padding-right: 10px;
 }
+
+.productSearch {
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}

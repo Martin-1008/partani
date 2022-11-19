@@ -6,6 +6,8 @@ import {
   doc,
   getDoc,
   updateDoc,
+  arrayUnion,
+  Timestamp,
 } from "firebase/firestore";
 import { getAuth, deleteUser } from "firebase/auth";
 import {
@@ -112,6 +114,7 @@ export const getData = async (uid) => {
   try {
     const docRef = await getDoc(doc(fireStore, "users", uid));
     const userRef = docRef.data();
+    console.log(userRef.birthDate);
     return { userRef, uid: uid };
   } catch (error) {
     return "NotFind";
@@ -136,3 +139,81 @@ export const updateData = async (
   await updateDoc(tes, tesData);
   return getData(uid);
 };
+
+export const addTransaction = async (amount, productId, uid) => {
+  try {
+    const tes = doc(fireStore, "transaction", uid);
+    const tesData = {
+      transactions: {
+        transactionAmount: amount,
+        transactionDate: new Date(),
+        transactionProductId: productId,
+      },
+    };
+    await setDoc(tes, tesData);
+    console.log("success");
+    return getTransactionData(uid);
+  } catch (error) {
+    console.log(error);
+    return "failed";
+  }
+};
+
+export const updateTransaction = async (amount, productId, uid) => {
+  try {
+    const tes = doc(fireStore, "transaction", uid);
+    const date = new Date();
+    date.setHours(0, 0, 0, 0);
+    const tesData = {
+      transactions: {
+        transactionAmount: amount,
+        transactionDate: new Date().toDateString(),
+        transactionProductId: productId,
+      },
+    };
+    await updateDoc(tes, tesData);
+    console.log("success");
+    return getTransactionData(uid);
+  } catch (error) {
+    console.log(error);
+    return "failed";
+  }
+};
+
+export const getTransactionData = async (uid) => {
+  try {
+    const docRef = await getDoc(doc(fireStore, "transaction", uid));
+    return docRef.data();
+    // const dummy = {
+    //   transactionAmount: +2,
+    //   transactionDate: new Date(),
+    //   transactionProductId: "a5",
+    // };
+    // console.log(
+    //   transactionRef,
+    //   transactionRef.transactions.transactionProductId
+    // );
+    // return {
+    //   transactionRef,
+    //   productId: transactionRef.transactions.transactionProductId,
+    // };
+  } catch (error) {
+    console.log("eror");
+    return "NotFind";
+  }
+};
+
+// export const updateTransaction = async (uid) => {
+//   try {
+//     const tes = doc(fireStore, "transaction", uid);
+//     const tesData = {
+//       regions: arrayUnion("jakartass"),
+//     };
+//     await updateDoc(tes, tesData);
+//     console.log("success");
+//     return getTransactionData(uid);
+//   } catch (error) {
+//     console.log(error);
+//     return "failed";
+//   }
+// };

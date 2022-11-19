@@ -1,9 +1,10 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.productList{
-    display: flex;
-    flex-direction: row;
+.productList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

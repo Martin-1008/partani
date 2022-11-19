@@ -80,6 +80,12 @@
   padding: 7px;
   margin: 10px;
   border-radius: 7px;
+  cursor: pointer;
+}
+
+.categoryBox:hover {
+  background-color: #8a8a8a;
+  color: white;
 }
 
 .purchaseCart {
@@ -211,4 +217,32 @@ input[type="number"] {
 
 .reviewText {
   margin: 10px 20px;
+}
+
+.dialogImage {
+  width: 20%;
+}
+
+.productText {
+  margin-left: 10px;
+  width: 80%;
+}
+
+.productAmountCalculation {
+  margin-top: 5px;
+}
+
+.totalPrice {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.alamatLengkap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.alamatTitle {
+  font-size: 1.1rem;
+  font-weight: bold;
 }

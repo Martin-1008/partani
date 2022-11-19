@@ -80,4 +80,3 @@ export const product = [
     category: "Buah",
   },
 ];
-

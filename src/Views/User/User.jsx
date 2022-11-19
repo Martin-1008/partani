@@ -148,21 +148,25 @@ const User = () => {
           </div>
           <div>
             <div className={classes.biodataDiri}>
-              <Stack sx={{ alignItems: "center" }} direction="row" spacing={3}>
+              <Stack
+                sx={{ alignItems: "center", marginBottom: "20px" }}
+                direction="row"
+                spacing={3}
+              >
                 <p>Biodata Diri</p>
                 <div className={classes.ubahAlamat} onClick={openUbahDiri}>
                   Ubah
                 </div>
               </Stack>
               <Stack direction="row" spacing={15}>
-                <Stack spacing={1} className={classes.coloumTitle}>
+                <Stack spacing={2} className={classes.coloumTitle}>
                   <div>Nama</div>
                   <div>Tanggal Lahir</div>
                   <div>Jenis Kelamin</div>
                   <div>Email</div>
                   <div>No. HP</div>
                 </Stack>
-                <Stack spacing={1} className={classes.coloumContent}>
+                <Stack spacing={2} className={classes.coloumContent}>
                   <div>{user.userNama}</div>
                   <div>{user.userTanggalLahir}</div>
                   <div>{user.userJenisKelamin}</div>
@@ -172,25 +176,31 @@ const User = () => {
               </Stack>
             </div>
             <div className={classes.alamat}>
-              <Stack sx={{ alignItems: "center" }} direction="row" spacing={3}>
+              <Stack
+                sx={{ alignItems: "center", marginBottom: "20px" }}
+                direction="row"
+                spacing={3}
+              >
                 <p>Alamat</p>
                 <div className={classes.ubahAlamat} onClick={openUbahAlamat}>
                   Ubah
                 </div>
               </Stack>
               <Stack direction="row" spacing={15}>
-                <Stack spacing={1} className={classes.coloumTitle}>
+                <Stack spacing={2} className={classes.coloumTitle}>
                   <div>Provinsi</div>
                   <div>Kota</div>
                   <div>Kecamatan</div>
                   <div>Alamat Lengkap</div>
                   <div>Kode Pos</div>
                 </Stack>
-                <Stack spacing={1} className={classes.coloumContent}>
+                <Stack spacing={2} className={classes.coloumContent}>
                   <div>{user.userProvinsi}</div>
                   <div>{user.userKota}</div>
                   <div>{user.userKecamatan}</div>
-                  <div>{user.userAlamatLengkap}</div>
+                  <div className={classes.alamatLengkap}>
+                    {user.userAlamatLengkap}
+                  </div>
                   <div>{user.userKodePos}</div>
                 </Stack>
               </Stack>
@@ -198,7 +208,7 @@ const User = () => {
           </div>
         </div>
       </div>
-      <div>
+      <div className={classes.footer}>
         <Footer />
       </div>
       <UbahDiri

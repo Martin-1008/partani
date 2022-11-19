@@ -52,7 +52,9 @@ const Products = () => {
                 </p>
                 {` "${filter}"`}{" "}
               </div>
-              <ProductList items={productFilter} />
+              <div className={classes.productSearch}>
+                <ProductList items={productFilter} />
+              </div>
             </div>
           )}
         </div>
