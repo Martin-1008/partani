@@ -146,7 +146,7 @@ const User = () => {
               </Button>
             </Box>
           </div>
-          <div>
+          <div className={classes.userInfo}>
             <div className={classes.biodataDiri}>
               <Stack
                 sx={{ alignItems: "center", marginBottom: "20px" }}

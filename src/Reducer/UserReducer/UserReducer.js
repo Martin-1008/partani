@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { startAfter } from "firebase/firestore";
 
 const initialState = {
   isLoggedIn: false,
@@ -13,6 +14,7 @@ const initialState = {
   userAlamatLengkap: "",
   userKodePos: "",
   userUid: "",
+  userTransactionCount: 0,
 };
 
 export const userReducer = createSlice({
@@ -32,6 +34,7 @@ export const userReducer = createSlice({
       state.userAlamatLengkap = action.payload.userRef.fullAddress;
       state.userKodePos = action.payload.userRef.postCode;
       state.userUid = action.payload.uid;
+      state.userTransactionCount = action.payload.userRef.transactionCount;
     },
     logoff: (state) => {
       window.location.href = "/login";
@@ -48,9 +51,12 @@ export const userReducer = createSlice({
       state.userKodePos = "";
       state.userUid = "";
     },
+    updateCount: (state) => {
+      state.userTransactionCount = state.userTransactionCount++;
+    },
   },
 });
 
-export const { login, logoff } = userReducer.actions;
+export const { login, logoff, updateCount } = userReducer.actions;
 
 export default userReducer.reducer;

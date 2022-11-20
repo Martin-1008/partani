@@ -22,6 +22,7 @@
 
 .productCard_img img {
   width: 200px;
+  height: 200px;
   border-radius: 10px 10px 0 0;
 }
 
@@ -63,4 +64,11 @@
 
 .productCard_content_info_rate span {
   padding: 0 0 0 5px;
+}
+
+.productCard_content_info_sold {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
 }

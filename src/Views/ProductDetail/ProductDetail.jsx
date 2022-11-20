@@ -26,7 +26,9 @@ import {
   addTransaction,
   updateTransaction,
   getTransactionData,
+  updateTransactionCount,
 } from "../../Controller/Firebase";
+import { updateCount } from "../../Reducer/UserReducer/UserReducer";
 
 const ProductDetail = () => {
   const [rating, setRating] = useState(0);
@@ -94,7 +96,14 @@ const ProductDetail = () => {
   };
 
   const handleInputTransaction = async () => {
-    await updateTransaction(amount, productFilter[0].id, user.userUid);
+    if (user.userTransactionCount == 0) {
+      await addTransaction(amount, productFilter[0].id, user.userUid);
+      await updateTransactionCount(1, user.userUid);
+    } else {
+      await updateTransaction(amount, productFilter[0].id, user.userUid);
+      await updateTransactionCount(user.userTransactionCount++, user.userUid);
+    }
+    updateCount();
     // await getTransactionData(user.userUid);
   };
   // amount, productFilter[0].id, user.userUid

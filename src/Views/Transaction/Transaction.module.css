@@ -11,6 +11,17 @@
   margin: 60px 0;
 }
 
+.container p {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
 .transactionList {
   padding: 40px 80px 20px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }

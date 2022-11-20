@@ -99,6 +99,7 @@ export const AddDatabase = async (
       district: kecamatan,
       fullAddress: alamatLengkap,
       postCode: kodePos,
+      transactionCount: 0,
     };
     await setDoc(tes, tesData);
     return getData(uid);
@@ -140,13 +141,24 @@ export const updateData = async (
   return getData(uid);
 };
 
+export const updateTransactionCount = async (count, uid) => {
+  const tes = doc(fireStore, "users", uid);
+
+  const tesData = {
+    transactionCount: count,
+  };
+  await updateDoc(tes, tesData);
+  console.log(count);
+  return getData(uid);
+};
+
 export const addTransaction = async (amount, productId, uid) => {
   try {
     const tes = doc(fireStore, "transaction", uid);
     const tesData = {
       transactions: {
         transactionAmount: amount,
-        transactionDate: new Date(),
+        transactionDate: new Date().toDateString(),
         transactionProductId: productId,
       },
     };

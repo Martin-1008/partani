@@ -38,7 +38,10 @@ const ProductCard = (props) => {
               <span>{props.rate}</span>
             </div>
             <div className={classes.productCard_content_info_sold}>
-              Terjual {props.sold} {props.unit}
+              <p>Terjual</p>{" "}
+              <p>
+                {props.sold} {props.unit}
+              </p>
             </div>
           </div>
         </div>
